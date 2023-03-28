@@ -48,3 +48,9 @@ MySimpleClass:
 	MyLong: 9223372036854775807
 	MyDouble: 3.14159265358979
 ```
+
+How to use:
+```
+string tiny = Tiny.Serializer.Serialize(myClass);
+MyClass myDeserializedClass = Tiny.Deserializer.Deserialize<MyClass>(tiny);
+```
