@@ -1,5 +1,5 @@
 ﻿//This is not YAML
-//As of v0.8:
+//As of v0.8.1:
 //MultiDimensional Array's not supported. Dictionary supports built-in value types and string.
 //
 //MIT License
@@ -545,6 +545,15 @@ namespace Tiny
             string[] nameAndValue = line.Split(':');
             name = nameAndValue[0];
             value = nameAndValue[1];
+
+            //v0.8.1 bugfix for string that contain ':'
+            if (nameAndValue.Length > 2)
+            {
+                for (int i = 2; i < nameAndValue.Length; i++)
+                {
+                    value += $":{nameAndValue[i]}";
+                }
+            }
 
             while(name.Length > 0 && name[0] == '\t')
                 name = name.Remove(0, 1);
