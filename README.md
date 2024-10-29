@@ -1,7 +1,7 @@
 # TINY
 This is not YAML
 
-As of v0.8:
+As of v0.8.1:
 
 MultiDimensional Array's not supported.
 Dictionary supports built-in value types and string.
