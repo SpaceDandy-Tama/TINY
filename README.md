@@ -1,6 +1,6 @@
 # TINY
 
-**Note:** This is not YAML.
+**T**his **I**s **N**ot **Y**AML.
 
 ## Version Information
 
