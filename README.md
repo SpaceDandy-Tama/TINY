@@ -1,12 +1,23 @@
 # TINY
-This is not YAML
 
-As of v0.8.2:
+**Note:** This is not YAML.
 
-MultiDimensional Array's not supported.
-Dictionary supports built-in value types and string.
+## Version Information
 
-Output from TINYSample project:
+### Current Version: v0.8.2
+- MultiDimensional Arrays are not supported.
+- Dictionaries support built-in value types and strings.
+
+### Changelog
+- **v0.8.2**: Adds enum deserialization.
+- **v0.8.1**: Addresses a bug when deserializing strings that contain `':'`.
+- **v0.8**: Initial Version.
+
+### Projected Future Versions
+- **v1.0**: Will add MultiDimensional Array support.
+- **v0.9**: Will add Dictionary custom value type support.
+
+## Output from TINYSample Project
 ```
 MyBoolean: True
 MyString: Lorem Ipsum...
@@ -49,8 +60,9 @@ MySimpleClass:
 	MyDouble: 3.14159265358979
 ```
 
-How to use:
-```
+## How to Use
+
+```csharp
 string tiny = Tiny.Serializer.Serialize(myClass);
 MyClass myDeserializedClass = Tiny.Deserializer.Deserialize<MyClass>(tiny);
 ```

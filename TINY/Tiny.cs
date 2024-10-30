@@ -1,8 +1,17 @@
-﻿//This is not YAML
-//v0.8.2: Adds enum deserialization
-//v0.8.1: Addresses a bug when deserializing strings that contain ':'
-//As of v0.8.0:
-//MultiDimensional Array's not supported. Dictionary supports built-in value types and string.
+﻿// TINY - This is not YAML
+//
+// Version Information (Current Version: v0.8.2)
+// - MultiDimensional Arrays are not supported.
+// - Dictionaries support built-in value types and strings.
+//
+// Changelog
+// - v0.8.2: Adds enum deserialization.
+// - v0.8.1: Addresses a bug when deserializing strings that contain ':'
+// - v0.8: Initial version.
+//
+// Projected Future Versions
+// - v1.0: Will add MultiDimensional Array support.
+// - v0.9: Will add Dictionary custom value type support.
 //
 //MIT License
 //
