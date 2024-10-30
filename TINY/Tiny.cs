@@ -1,5 +1,7 @@
 ﻿//This is not YAML
-//As of v0.8.1:
+//v0.8.2: Adds enum deserialization
+//v0.8.1: Addresses a bug when deserializing strings that contain ':'
+//As of v0.8.0:
 //MultiDimensional Array's not supported. Dictionary supports built-in value types and string.
 //
 //MIT License
@@ -460,7 +462,7 @@ namespace Tiny
 
         private static bool IsBuiltInType(Type type)
         {
-            bool result = false;
+            bool result = type.IsEnum;
             result |= type == typeof(string);
             result |= type == typeof(bool);
             result |= type == typeof(byte);
@@ -487,7 +489,9 @@ namespace Tiny
             object value = null;
             try
             {
-                if (type == typeof(string))
+                if (type.IsEnum)
+                    value = Enum.Parse(type, valueString, true);
+                else if (type == typeof(string))
                     value = valueString;
                 else if (type == typeof(bool))
                     value = ConvertStringToBoolean(ref valueString);
