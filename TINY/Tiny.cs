@@ -5,6 +5,7 @@
 // - Dictionaries support built-in value types and strings.
 //
 // Changelog
+// - v0.8.3: Addresses a bug for deserializing tiny files with fields missing in the target object class.
 // - v0.8.2: Adds enum deserialization.
 // - v0.8.1: Addresses a bug when deserializing strings that contain ':'
 // - v0.8: Initial version.
@@ -212,6 +213,13 @@ namespace Tiny
                 ConvertLineToNameAndValueString(ref line, out fieldName, out valueString);
 
                 FieldInfo fieldInfo = type.GetField(fieldName);
+
+                //v0.8.3 bugfix
+                if (fieldInfo == null)
+                {
+                    return default(T);
+                }
+
                 Type fieldType = fieldInfo.FieldType;
 
                 if (valueString.Length > 0)
@@ -559,7 +567,7 @@ namespace Tiny
             name = nameAndValue[0];
             value = nameAndValue[1];
 
-            //v0.8.1 bugfix for string that contain ':'
+            //v0.8.1 bugfix
             if (nameAndValue.Length > 2)
             {
                 for (int i = 2; i < nameAndValue.Length; i++)
